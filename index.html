@@ -382,6 +382,16 @@ button { font: inherit; color: inherit; }
 .ow-letter p { line-height: 1.9; }
 .ow-sign { align-self: flex-end; font-family: var(--f-hand); font-size: 20px; color: var(--rose); }
 .ow input:checked ~ .ow-letter { display: flex; animation: rise .5s ease both; }
+.breathe { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 0 6px; }
+.breathe-heart { display: grid; place-items: center; width: 64px; height: 64px; color: var(--rose); font-size: 36px; line-height: 1; animation: breathe 10s ease-in-out infinite; }
+@keyframes breathe { 0% { transform: scale(.7); } 40%, 50% { transform: scale(1.35); } 100% { transform: scale(.7); } }
+.breathe-cue { position: relative; width: 12em; height: 1.6em; text-align: center; font-size: 14px; color: var(--muted); letter-spacing: .15em; }
+.breathe-cue span { position: absolute; inset: 0; }
+.breathe-cue span:nth-child(1) { animation: cueIn 10s infinite; }
+.breathe-cue span:nth-child(2) { opacity: 0; animation: cueOut 10s infinite; }
+.breathe-cue span:nth-child(3) { display: none; }
+@keyframes cueIn { 0%, 42% { opacity: 1; } 48%, 96% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes cueOut { 0%, 42% { opacity: 0; } 48%, 96% { opacity: 1; } 100% { opacity: 0; } }
 .ow input:checked ~ .ow-env .ow-icon::before { transform: rotateX(180deg); }
 .ow input:checked ~ .ow-env .ow-icon::after { opacity: 0; }
 .ow input:checked ~ .ow-env .open { display: none; }
@@ -503,13 +513,15 @@ button { font: inherit; color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; }
   #openEnv:checked ~ .intro { display: none; }
+  .breathe-cue span:nth-child(1), .breathe-cue span:nth-child(2) { display: none; }
+  .breathe-cue span:nth-child(3) { display: inline; position: static; letter-spacing: 0; }
   .still b { animation: none; }
   .petals { display: none; }
   .music.on .disc { animation: none; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 69.5958%; font-size: 21.9774px; --dx: -44.21998366351724px; animation-duration: 25.2996s; animation-delay: -0.562535s;">♥</span><span class="petal" style="left: 5.7135%; font-size: 17.5362px; --dx: -28.94013487221798px; animation-duration: 17.6983s; animation-delay: -26.4807s;">❀</span><span class="petal" style="left: 47.5611%; font-size: 15.0094px; --dx: 8.103266094265251px; animation-duration: 21.1367s; animation-delay: -16.2902s;">♡</span><span class="petal" style="left: 25.3654%; font-size: 18.4878px; --dx: -28.281300134560293px; animation-duration: 21.0431s; animation-delay: -11.4103s;">✿</span><span class="petal" style="left: 22.8209%; font-size: 11.5452px; --dx: -46.569746322604686px; animation-duration: 15.7913s; animation-delay: -20.6462s;">♥</span><span class="petal" style="left: 85.5318%; font-size: 23.3242px; --dx: -1.7012200251430585px; animation-duration: 24.112s; animation-delay: -2.49478s;">❀</span><span class="petal" style="left: 91.2646%; font-size: 20.9266px; --dx: -39.780768254974625px; animation-duration: 15.4789s; animation-delay: -18.3851s;">♡</span><span class="petal" style="left: 27.9026%; font-size: 15.2416px; --dx: -40.629137485313784px; animation-duration: 27.6636s; animation-delay: -10.6103s;">✿</span><span class="petal" style="left: 70.7571%; font-size: 23.3263px; --dx: 29.478292947025835px; animation-duration: 15.6715s; animation-delay: -9.63038s;">♥</span><span class="petal" style="left: 53.8315%; font-size: 20.197px; --dx: 8.628580048073815px; animation-duration: 22.7569s; animation-delay: -9.49542s;">❀</span><span class="petal" style="left: 84.6319%; font-size: 15.915px; --dx: -51.93505853242819px; animation-duration: 14.106s; animation-delay: -18.7163s;">♡</span><span class="petal" style="left: 74.5592%; font-size: 22.8586px; --dx: -8.444105701055634px; animation-duration: 26.3867s; animation-delay: -5.04641s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 65.4918%; font-size: 17.4935px; --dx: 31.43385564394258px; animation-duration: 19.9298s; animation-delay: -25.7157s;">♥</span><span class="petal" style="left: 58.5806%; font-size: 17.984px; --dx: 24.988778313595446px; animation-duration: 27.7509s; animation-delay: -27.0527s;">❀</span><span class="petal" style="left: 29.8686%; font-size: 19.8468px; --dx: 33.80749836652109px; animation-duration: 14.8643s; animation-delay: -20.3202s;">♡</span><span class="petal" style="left: 4.14595%; font-size: 10.4231px; --dx: 55.43189034150484px; animation-duration: 18.3208s; animation-delay: -9.55462s;">✿</span><span class="petal" style="left: 38.8913%; font-size: 17.3109px; --dx: -55.28719876659527px; animation-duration: 17.2288s; animation-delay: -14.0216s;">♥</span><span class="petal" style="left: 7.19042%; font-size: 17.8045px; --dx: -8.025866137052894px; animation-duration: 15.1204s; animation-delay: -10.1353s;">❀</span><span class="petal" style="left: 9.23103%; font-size: 18.1632px; --dx: -45.726095853644686px; animation-duration: 21.5386s; animation-delay: -3.82382s;">♡</span><span class="petal" style="left: 64.8177%; font-size: 16.5624px; --dx: -24.348151134108335px; animation-duration: 19.1542s; animation-delay: -27.0725s;">✿</span><span class="petal" style="left: 1.76108%; font-size: 22.8804px; --dx: 14.63659782744125px; animation-duration: 14.6708s; animation-delay: -5.76774s;">♥</span><span class="petal" style="left: 33.4918%; font-size: 11.6621px; --dx: 59.13231353098426px; animation-duration: 21.3772s; animation-delay: -9.78101s;">❀</span><span class="petal" style="left: 93.8552%; font-size: 10.2099px; --dx: 31.30955119495225px; animation-duration: 16.5685s; animation-delay: -4.44459s;">♡</span><span class="petal" style="left: 58.2361%; font-size: 10.3747px; --dx: -47.55329335658556px; animation-duration: 22.5021s; animation-delay: -24.1955s;">✿</span></div>
 
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
@@ -568,7 +580,7 @@ button { font: inherit; color: inherit; }
       <div class="unit days"><b id="cD">730</b><span>天</span></div>
       <div class="unit"><b id="cH">00</b><span>时</span></div>
       <div class="unit"><b id="cM">00</b><span>分</span></div>
-      <div class="unit"><b id="cS">01</b><span>秒</span></div>
+      <div class="unit"><b id="cS">00</b><span>秒</span></div>
     </div>
     <p class="still"><b aria-hidden="true">♥</b>还在一秒一秒增加中</p>
     <div class="stats">
@@ -615,9 +627,9 @@ button { font: inherit; color: inherit; }
     <div class="sec-head">
       <span class="eyebrow">留给以后的你</span>
       <h2 id="owTitle">当你……的时候，再打开</h2>
-      <p>两周年过了也可以拆。不过要在对的时候拆 hor。</p>
+      <p>我知道你有时候会想很多，一个人默默扛着，不想让我担心。这几封信，是我提前写给那些时候的你。两周年过了也可以拆，想看几次都可以。</p>
     </div>
-    <div class="ow-list" id="owList"><div class="ow"><input type="checkbox" id="ow0" class="sr"><label class="ow-env" for="ow0"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 01</small>当你很累的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>辛苦了。先把手机放下，深呼吸一下。</p><p>你不用每天都很厉害。在我面前，你可以累、可以烦、可以什么都不想做。</p><p>今天就让我照顾你一下：去吃点好吃的，早点睡。明天的事，明天再说。</p><p>你已经做得很好了，我都看到了。</p><span class="ow-sign">—— katkat</span></div></div><div class="ow"><input type="checkbox" id="ow1" class="sr"><label class="ow-env" for="ow1"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 02</small>当我们吵架的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>如果你在看这封，那我们应该又吵架了，哈哈。</p><p>先别急着生气，记住：我们是同一队的，不是对手。</p><p>我可能正在炸毛，说了一些不是真心的话。你知道的，我不是真的那样想。</p><p>等我们都冷静了，再好好说。还有，谁先哄谁加分，这次机会让给你。</p><span class="ow-sign">—— katkat</span></div></div><div class="ow"><input type="checkbox" id="ow2" class="sr"><label class="ow-env" for="ow2"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 03</small>当你怀疑自己的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>你可能觉得工作不顺、未来很模糊，觉得自己不够好。</p><p>可是在我眼里，你是那个会把我拉到马路里面、吵完架会先低头的人，是一个很好很好的人。</p><p>慢一点没关系，我们一起慢慢来。</p><p>我相信你，比你相信自己还多一点。</p><span class="ow-sign">—— katkat</span></div></div><div class="ow"><input type="checkbox" id="ow3" class="sr"><label class="ow-env" for="ow3"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 04</small>当你想我的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>想我就直接说，不要装酷。打给我、发信息给我，或者直接来找我。</p><p>如果我不在身边，就回来看看这页里的照片：新加坡、成都，还有以后更多的地方。</p><p>我也在想你，可能比你想我还多一点点。</p><p>（这个不准拿来比。）</p><span class="ow-sign">—— katkat</span></div></div></div>
+    <div class="ow-list" id="owList"><div class="ow"><input type="checkbox" id="ow0" class="sr"><label class="ow-env" for="ow0"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 01</small>当你又开始想太多的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>我知道，你现在脑袋里可能有很多声音，一个接一个，停不下来。</p><p>先停一下。跟着下面这颗心呼吸：它变大的时候吸气，变小的时候呼气。做三次就好。</p><div class="breathe" aria-hidden="true"><span class="breathe-heart">♥</span><span class="breathe-cue"><span>吸气……</span><span>呼气……</span><span>慢慢吸气，再慢慢呼气</span></span></div><p>你现在想到的那些最坏的结果，大部分都不会发生。就算真的发生了，你也不是一个人面对。</p><p>如果脑袋还是很吵，就说给我听。不用先整理好，乱乱的也没关系，我听得懂。</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div><div class="ow"><input type="checkbox" id="ow1" class="sr"><label class="ow-env" for="ow1"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 02</small>当你觉得自己不够好的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>你可能觉得自己做得不够、走得太慢，别人都比你厉害。</p><p>可是我认识的你，会在朋友的婚礼上鼓起勇气喜欢一个人，会在吵架后先低头，会默默把我拉到马路里面。这些，都不是一个“不够好”的人会做的事。</p><p>你的价值，不是用工作、钱或者进度来算的。</p><p>今天不用证明什么。你本来的样子，就已经值得被爱了。</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div><div class="ow"><input type="checkbox" id="ow2" class="sr"><label class="ow-env" for="ow2"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 03</small>当你很累、什么都不想做的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>那就先什么都不做，没关系的。</p><p>累不是你的错，也不代表你失败了。人不是机器，充电的时候不需要内疚。</p><p>今天只做一件很小的事就好：喝一杯水、洗个热水澡，或者出门走十分钟。做到了，就已经很棒了。</p><p>剩下的，交给明天的你。今天的你，只要好好休息。</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div><div class="ow"><input type="checkbox" id="ow3" class="sr"><label class="ow-env" for="ow3"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 04</small>当你对未来感到迷茫的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>我知道你常常担心工作，担心以后会怎样。</p><p>未来不需要今天就想清楚。我们不用一次走完整条路，只要看清楚下一步。</p><p>你不是一个人在想以后。你努力的时候，我陪你；你走慢了，我等你；你走错了，我们一起回头。</p><p>先把下一步走好，就够了。</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div><div class="ow"><input type="checkbox" id="ow4" class="sr"><label class="ow-env" for="ow4"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 05</small>当我们吵架的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>如果你在看这封，那我们应该又吵架了。</p><p>先别急着把错都揽在自己身上，也别一个人想到很晚。吵架不代表我不爱你，只代表我们都很在乎。</p><p>我生气的时候说的话，常常比我心里想的重。等我冷静下来，我会好好听你说。</p><p>我们是同一队的，不是对手。今天不想说也没关系，但记得：明天醒来，我还是在你这边。</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div><div class="ow"><input type="checkbox" id="ow5" class="sr"><label class="ow-env" for="ow5"><span class="ow-icon" aria-hidden="true"></span><span class="ow-when"><small>备用信 06</small>当你想我的时候</span><span class="ow-act"><span class="open">拆开</span><span class="close">收起</span></span></label><div class="ow-letter"><p>想我就直接说，不要装酷。打给我、发信息给我，或者直接来找我。</p><p>如果我不在身边，就回来看看这页里的照片：新加坡、成都，还有我们第一次约出来的那天。那时候的我们，都还不知道后来会这么喜欢对方。</p><p>我也在想你，可能比你想我还多一点点。</p><p>（这个不准拿来比。）</p><span class="ow-sign">—— 一直在你这边的 katkat</span></div></div></div>
   </section>
 
   <footer class="ending">
@@ -647,9 +659,9 @@ button { font: inherit; color: inherit; }
 
 </main>
 
-<button class="music" id="musicBtn" type="button" aria-pressed="false" hidden="">
+<button class="music" id="musicBtn" type="button" aria-pressed="true" hidden="">
   <span class="disc" aria-hidden="true"></span>
-  <span id="musicLabel">背景音乐 · 关</span>
+  <span id="musicLabel">声音 · 开</span>
 </button>
 <audio id="bgm" preload="none" loop=""></audio>
 <div class="toast" id="toast" role="status"></div>
@@ -670,14 +682,37 @@ const CONFIG = {
 
   // 留给以后的你：在对的时候才拆
   openWhen: [
-    { when: "你很累",
-      text: ["辛苦了。先把手机放下，深呼吸一下。", "你不用每天都很厉害。在我面前，你可以累、可以烦、可以什么都不想做。", "今天就让我照顾你一下：去吃点好吃的，早点睡。明天的事，明天再说。", "你已经做得很好了，我都看到了。"] },
+    { when: "你又开始想太多",
+      text: ["我知道，你现在脑袋里可能有很多声音，一个接一个，停不下来。",
+             "先停一下。跟着下面这颗心呼吸：它变大的时候吸气，变小的时候呼气。做三次就好。",
+             "[breathe]",
+             "你现在想到的那些最坏的结果，大部分都不会发生。就算真的发生了，你也不是一个人面对。",
+             "如果脑袋还是很吵，就说给我听。不用先整理好，乱乱的也没关系，我听得懂。"] },
+    { when: "你觉得自己不够好",
+      text: ["你可能觉得自己做得不够、走得太慢，别人都比你厉害。",
+             "可是我认识的你，会在朋友的婚礼上鼓起勇气喜欢一个人，会在吵架后先低头，会默默把我拉到马路里面。这些，都不是一个“不够好”的人会做的事。",
+             "你的价值，不是用工作、钱或者进度来算的。",
+             "今天不用证明什么。你本来的样子，就已经值得被爱了。"] },
+    { when: "你很累、什么都不想做",
+      text: ["那就先什么都不做，没关系的。",
+             "累不是你的错，也不代表你失败了。人不是机器，充电的时候不需要内疚。",
+             "今天只做一件很小的事就好：喝一杯水、洗个热水澡，或者出门走十分钟。做到了，就已经很棒了。",
+             "剩下的，交给明天的你。今天的你，只要好好休息。"] },
+    { when: "你对未来感到迷茫",
+      text: ["我知道你常常担心工作，担心以后会怎样。",
+             "未来不需要今天就想清楚。我们不用一次走完整条路，只要看清楚下一步。",
+             "你不是一个人在想以后。你努力的时候，我陪你；你走慢了，我等你；你走错了，我们一起回头。",
+             "先把下一步走好，就够了。"] },
     { when: "我们吵架",
-      text: ["如果你在看这封，那我们应该又吵架了，哈哈。", "先别急着生气，记住：我们是同一队的，不是对手。", "我可能正在炸毛，说了一些不是真心的话。你知道的，我不是真的那样想。", "等我们都冷静了，再好好说。还有，谁先哄谁加分，这次机会让给你。"] },
-    { when: "你怀疑自己",
-      text: ["你可能觉得工作不顺、未来很模糊，觉得自己不够好。", "可是在我眼里，你是那个会把我拉到马路里面、吵完架会先低头的人，是一个很好很好的人。", "慢一点没关系，我们一起慢慢来。", "我相信你，比你相信自己还多一点。"] },
+      text: ["如果你在看这封，那我们应该又吵架了。",
+             "先别急着把错都揽在自己身上，也别一个人想到很晚。吵架不代表我不爱你，只代表我们都很在乎。",
+             "我生气的时候说的话，常常比我心里想的重。等我冷静下来，我会好好听你说。",
+             "我们是同一队的，不是对手。今天不想说也没关系，但记得：明天醒来，我还是在你这边。"] },
     { when: "你想我",
-      text: ["想我就直接说，不要装酷。打给我、发信息给我，或者直接来找我。", "如果我不在身边，就回来看看这页里的照片：新加坡、成都，还有以后更多的地方。", "我也在想你，可能比你想我还多一点点。", "（这个不准拿来比。）"] }
+      text: ["想我就直接说，不要装酷。打给我、发信息给我，或者直接来找我。",
+             "如果我不在身边，就回来看看这页里的照片：新加坡、成都，还有我们第一次约出来的那天。那时候的我们，都还不知道后来会这么喜欢对方。",
+             "我也在想你，可能比你想我还多一点点。",
+             "（这个不准拿来比。）"] }
   ],
 
 
@@ -899,6 +934,7 @@ const CONFIG = {
     input.addEventListener("change", () => {
       done = input.checked ? done.concat(i) : done.filter((x) => x !== i);
       try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+      sfx.tick(input.checked);
       if (input.checked) { const r = box.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 8); }
     });
     li.append(label); wl.append(li);
@@ -919,9 +955,17 @@ const CONFIG = {
     act.innerHTML = '<span class="open">拆开</span><span class="close">收起</span>';
     label.append(icon, when, act);
     const letter = document.createElement("div"); letter.className = "ow-letter";
-    item.text.forEach((t) => { const p = document.createElement("p"); p.textContent = t; letter.append(p); });
-    const sign = document.createElement("span"); sign.className = "ow-sign"; sign.textContent = "—— " + CONFIG.fromName;
+    item.text.forEach((t) => {
+      if (t === "[breathe]") {
+        const br = document.createElement("div"); br.className = "breathe"; br.setAttribute("aria-hidden", "true");
+        br.innerHTML = '<span class="breathe-heart">♥</span><span class="breathe-cue"><span>吸气……</span><span>呼气……</span><span>慢慢吸气，再慢慢呼气</span></span>';
+        letter.append(br); return;
+      }
+      const p = document.createElement("p"); p.textContent = t; letter.append(p);
+    });
+    const sign = document.createElement("span"); sign.className = "ow-sign"; sign.textContent = "—— 一直在你这边的 " + CONFIG.fromName;
     letter.append(sign);
+    input.addEventListener("change", () => sfx.unfold(input.checked));
     box.append(input, label, letter);
     ow.append(box);
   });
@@ -973,6 +1017,18 @@ const CONFIG = {
   // It starts when the envelope is opened (a tap is required before any sound can play).
   const audio = $("bgm"), mb = $("musicBtn"), ml = $("musicLabel");
   const reduceMotion = reduce;
+  // one shared audio context for music and sound effects (created on the first tap)
+  let actx = null;
+  function getCtx() {
+    if (!actx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}  // play even in iPhone silent mode
+      actx = new AC();
+    }
+    if (actx.state === "suspended") actx.resume();
+    return actx;
+  }
   const Synth = (() => {
     let ctx, master, timer, next = 0, step = 0, playing = false, padWave;
     const Q = 60 / 66, E = Q / 2;                 // 66 bpm
@@ -1032,11 +1088,9 @@ const CONFIG = {
       return buf;
     }
     function start() {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return false;
       if (!ctx) {
-        try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}  // play even in iPhone silent mode
-        ctx = new AC();
+        ctx = getCtx();
+        if (!ctx) return false;
         padWave = ctx.createPeriodicWave(new Float32Array([0, 0, 0, 0, 0, 0]), new Float32Array([0, 1, 0, 1 / 9, 0, 1 / 25]));
         master = ctx.createGain(); master.gain.value = 1;
         const out = ctx.createGain(); out.gain.value = 0;
@@ -1066,26 +1120,85 @@ const CONFIG = {
     return { start, stop, get playing() { return playing; } };
   })();
 
+  // ---------- sound effects (made in the browser, like the music) ----------
+  let soundOn = true;
+  const sfx = (() => {
+    let out, noiseBuf;
+    const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
+    function init() {
+      const c = getCtx();
+      if (!c) return null;
+      if (!out) {
+        out = c.createGain(); out.gain.value = 0.55; out.connect(c.destination);
+        noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate);
+        const d = noiseBuf.getChannelData(0);
+        for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      }
+      return c;
+    }
+    function noise(c, t, dur, f1, f2, q, vol, att) {
+      const src = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain();
+      src.buffer = noiseBuf; bp.type = "bandpass"; bp.Q.value = q;
+      bp.frequency.setValueAtTime(f1, t); bp.frequency.exponentialRampToValueAtTime(f2, t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + (att || 0.004));
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      src.connect(bp); bp.connect(g); g.connect(out); src.start(t); src.stop(t + dur + 0.05);
+    }
+    function tone(c, t, f, dur, vol, f2) {
+      const o = c.createOscillator(), g = c.createGain();
+      o.frequency.setValueAtTime(f, t);
+      if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(out); o.start(t); o.stop(t + dur + 0.05);
+    }
+    function bell(c, t, m, dur, vol) { tone(c, t, hz(m), dur, vol); tone(c, t, hz(m) * 2, dur / 2, vol * 0.25); }
+    function go(fn) { if (!soundOn) return; const c = init(); if (c) fn(c, c.currentTime + 0.01); }
+    return {
+      // wax seal cracks, the letter slides out, then a little chime
+      seal: () => go((c, t) => {
+        noise(c, t, 0.12, 2200, 900, 1.5, 0.5); noise(c, t + 0.04, 0.09, 1200, 600, 1.5, 0.35); tone(c, t, 160, 0.12, 0.25, 60);
+        noise(c, t + 1.0, 0.8, 500, 2600, 0.7, 0.16, 0.25);
+        [77, 81, 84, 89].forEach((m, i) => bell(c, t + 2.1 + i * 0.11, m, 1.6, 0.07));
+      }),
+      // ticket punch
+      punch: () => go((c, t) => {
+        noise(c, t, 0.05, 3000, 2000, 2, 0.5); tone(c, t, 180, 0.09, 0.3, 70);
+        noise(c, t + 0.11, 0.05, 2400, 1600, 2, 0.4);
+        bell(c, t + 0.22, 84, 0.9, 0.06); bell(c, t + 0.32, 88, 0.9, 0.06);
+      }),
+      // love button: a pop, and the chime climbs higher with every tap
+      love: (lvl) => go((c, t) => { tone(c, t, 420, 0.1, 0.18, 950); bell(c, t + 0.04, [77, 79, 81, 84, 86, 89][lvl % 6], 1.2, 0.09); }),
+      tick: (on) => go((c, t) => { if (on) { bell(c, t, 88, 0.9, 0.07); bell(c, t + 0.08, 93, 1.1, 0.06); } else tone(c, t, 300, 0.08, 0.08, 200); }),
+      unfold: (open) => go((c, t) => { noise(c, t, open ? 0.5 : 0.3, 700, open ? 2800 : 1200, 0.8, 0.14, 0.08); if (open) bell(c, t + 0.25, 84, 1.4, 0.05); })
+    };
+  })();
+
+  // ---------- sound on/off ----------
   const useFile = !!CONFIG.song.file;
   const isPlaying = () => useFile ? !audio.paused : Synth.playing;
-  function setPlaying(on) {
-    mb.classList.toggle("on", on);
-    mb.setAttribute("aria-pressed", on ? "true" : "false");
-    ml.textContent = on ? "背景音乐 · 开" : "背景音乐 · 关";
+  function setBtn() {
+    mb.classList.toggle("on", soundOn && isPlaying());
+    mb.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    ml.textContent = soundOn ? "声音 · 开" : "声音 · 关";
   }
   function play() {
+    if (!soundOn) return;
     if (useFile) {
       if (!audio.src) audio.src = CONFIG.song.file;
-      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+      audio.play().then(setBtn).catch(setBtn);
     } else {
-      setPlaying(Synth.start());
+      Synth.start(); setBtn();
     }
   }
-  function pause() { useFile ? audio.pause() : Synth.stop(); setPlaying(false); }
+  function pause() { useFile ? audio.pause() : Synth.stop(); setBtn(); }
   mb.hidden = false;
-  ml.textContent = "背景音乐 · 关";
-  mb.addEventListener("click", () => { isPlaying() ? pause() : play(); });
-  $("openEnv").addEventListener("change", () => { if ($("openEnv").checked && !isPlaying()) play(); });
+  setBtn();
+  mb.addEventListener("click", () => { soundOn = !soundOn; soundOn ? play() : pause(); setBtn(); });
+  $("openEnv").addEventListener("change", () => { if ($("openEnv").checked) { sfx.seal(); if (!isPlaying()) play(); } });
+  document.querySelectorAll('input[name="love"]').forEach((r, i) => r.addEventListener("change", () => { if (r.checked && i > 0) sfx.love(i - 1); }));
   let resumeOnShow = false;
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && isPlaying()) { pause(); resumeOnShow = true; }
@@ -1095,6 +1208,7 @@ const CONFIG = {
   $("boardBtn").addEventListener("click", (ev) => {
     ev.preventDefault();
     burst(ev.clientX, ev.clientY, 10);
+    sfx.punch();
     $("story").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   });
 })();
