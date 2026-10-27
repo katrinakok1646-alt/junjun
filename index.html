@@ -358,32 +358,6 @@ button { font: inherit; color: inherit; }
 .love-btn:active { transform: scale(.96); }
 .love-count { font-size: 13px; color: var(--muted); min-height: 1.5em; }
 
-/* ---------- our song ---------- */
-.song {
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
-  background: var(--surface); border-radius: 18px; padding: 16px 18px; box-shadow: var(--shadow);
-}
-.vinyl {
-  width: 64px; height: 64px; border-radius: 50%; flex: none;
-  background:
-    radial-gradient(circle, var(--rose) 0 9px, #2B1720 10px 11px, transparent 12px),
-    repeating-radial-gradient(circle, #2B1720 0 2px, #3A2230 2px 4px);
-  box-shadow: 0 0 0 3px var(--rose-soft);
-  animation: spin 6s linear infinite;
-}
-.song-info { display: flex; flex-direction: column; min-width: 0; line-height: 1.5; }
-.song-info b { font-family: var(--f-head); font-weight: 400; font-size: 20px; }
-.song-artist { font-size: 13px; color: var(--muted); }
-.song-note { font-size: 13px; color: var(--rose); margin-top: 2px; }
-.song-go {
-  align-self: center; text-decoration: none; white-space: nowrap;
-  background: var(--rose); color: var(--on-rose); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500;
-}
-@media (max-width: 420px) {
-  .song { grid-template-columns: auto 1fr; }
-  .song-go { grid-column: 1 / -1; justify-self: stretch; text-align: center; }
-}
-
 /* ---------- open-when envelopes ---------- */
 .ow-list { display: flex; flex-direction: column; gap: 12px; }
 .ow-env {
@@ -535,7 +509,7 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 79.0205%; font-size: 17.0988px; --dx: 22.457572479814132px; animation-duration: 24.0227s; animation-delay: -0.143807s;">♥</span><span class="petal" style="left: 68.179%; font-size: 12.6568px; --dx: -4.851151604073124px; animation-duration: 21.8753s; animation-delay: -1.5188s;">❀</span><span class="petal" style="left: 18.37%; font-size: 23.8193px; --dx: 1.164215693535425px; animation-duration: 17.1785s; animation-delay: -7.43889s;">♡</span><span class="petal" style="left: 64.1754%; font-size: 17.2534px; --dx: -56.3810114710312px; animation-duration: 17.6229s; animation-delay: -16.7488s;">✿</span><span class="petal" style="left: 21.2481%; font-size: 23.9547px; --dx: 57.36511994542535px; animation-duration: 25.0322s; animation-delay: -9.90839s;">♥</span><span class="petal" style="left: 95.4424%; font-size: 10.4154px; --dx: 4.9700436445416045px; animation-duration: 18.5916s; animation-delay: -0.527329s;">❀</span><span class="petal" style="left: 46.5706%; font-size: 15.09px; --dx: 39.80665755759317px; animation-duration: 27.5651s; animation-delay: -0.679064s;">♡</span><span class="petal" style="left: 6.64796%; font-size: 12.1886px; --dx: -45.1975047251299px; animation-duration: 14.3203s; animation-delay: -12.6313s;">✿</span><span class="petal" style="left: 16.9921%; font-size: 14.692px; --dx: -17.599927470924086px; animation-duration: 17.5673s; animation-delay: -15.2283s;">♥</span><span class="petal" style="left: 8.70906%; font-size: 12.4483px; --dx: -34.341513539896894px; animation-duration: 16.569s; animation-delay: -6.711s;">❀</span><span class="petal" style="left: 26.8082%; font-size: 18.8821px; --dx: -37.16802867271581px; animation-duration: 26.7828s; animation-delay: -5.49369s;">♡</span><span class="petal" style="left: 61.71%; font-size: 14.2917px; --dx: -56.55359158739921px; animation-duration: 14.71s; animation-delay: -17.362s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 33.6665%; font-size: 12.5371px; --dx: -38.94770647605485px; animation-duration: 20.0121s; animation-delay: -7.17085s;">♥</span><span class="petal" style="left: 47.6722%; font-size: 12.0939px; --dx: -18.635782250642656px; animation-duration: 18.6269s; animation-delay: -8.60253s;">❀</span><span class="petal" style="left: 14.331%; font-size: 15.3832px; --dx: -15.603759314358356px; animation-duration: 18.4725s; animation-delay: -11.4217s;">♡</span><span class="petal" style="left: 20.7951%; font-size: 23.8296px; --dx: 2.0210304099126546px; animation-duration: 14.6375s; animation-delay: -22.2416s;">✿</span><span class="petal" style="left: 92.9094%; font-size: 20.1581px; --dx: -37.9807909253195px; animation-duration: 20.5347s; animation-delay: -1.88826s;">♥</span><span class="petal" style="left: 17.2226%; font-size: 13.7225px; --dx: 1.9588488588449593px; animation-duration: 22.0502s; animation-delay: -14.355s;">❀</span><span class="petal" style="left: 53.7584%; font-size: 17.8298px; --dx: -38.53430495955452px; animation-duration: 18.4904s; animation-delay: -15.3757s;">♡</span><span class="petal" style="left: 11.6452%; font-size: 18.2733px; --dx: 15.06268050059235px; animation-duration: 14.9748s; animation-delay: -3.60316s;">✿</span><span class="petal" style="left: 86.0574%; font-size: 22.1956px; --dx: -8.74674138342543px; animation-duration: 22.1116s; animation-delay: -21.0949s;">♥</span><span class="petal" style="left: 38.6529%; font-size: 11.0091px; --dx: 31.896444521214377px; animation-duration: 22.8167s; animation-delay: -15.1573s;">❀</span><span class="petal" style="left: 13.6435%; font-size: 17.054px; --dx: 10.041014539000827px; animation-duration: 26.4705s; animation-delay: -22.3456s;">♡</span><span class="petal" style="left: 90.3219%; font-size: 15.8648px; --dx: -5.586813016994697px; animation-duration: 23.2457s; animation-delay: -17.111s;">✿</span></div>
 
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
@@ -594,7 +568,7 @@ button { font: inherit; color: inherit; }
       <div class="unit days"><b id="cD">730</b><span>天</span></div>
       <div class="unit"><b id="cH">00</b><span>时</span></div>
       <div class="unit"><b id="cM">00</b><span>分</span></div>
-      <div class="unit"><b id="cS">01</b><span>秒</span></div>
+      <div class="unit"><b id="cS">00</b><span>秒</span></div>
     </div>
     <p class="still"><b aria-hidden="true">♥</b>还在一秒一秒增加中</p>
     <div class="stats">
@@ -603,17 +577,6 @@ button { font: inherit; color: inherit; }
       <span><b id="sHours">17,520</b>个小时</span>
     </div>
     <p class="aside">每一秒都在想你，偶尔想揍你。</p>
-  </section>
-
-  <section class="song" aria-label="我们的歌">
-    <span class="vinyl" aria-hidden="true"></span>
-    <div class="song-info">
-      <span class="eyebrow">我们的歌</span>
-      <b id="songName">《慢慢喜欢你》</b>
-      <span class="song-artist" id="songArtist">莫文蔚</span>
-      <span class="song-note" id="songNote">你先喜欢上我，我慢慢喜欢上你。</span>
-    </div>
-    <a class="song-go" id="songLink" href="https://www.youtube.com/results?search_query=%E8%8E%AB%E6%96%87%E8%94%9A+%E6%85%A2%E6%85%A2%E5%96%9C%E6%AC%A2%E4%BD%A0" target="_blank" rel="noopener">去听 ▶</a>
   </section>
 
   <section class="sec" id="story" aria-labelledby="storyTitle">
@@ -686,7 +649,7 @@ button { font: inherit; color: inherit; }
 
 <button class="music" id="musicBtn" type="button" aria-pressed="false" hidden="">
   <span class="disc" aria-hidden="true"></span>
-  <span id="musicLabel">播放我们的歌</span>
+  <span id="musicLabel">背景音乐 · 关</span>
 </button>
 <audio id="bgm" preload="none" loop=""></audio>
 <div class="toast" id="toast" role="status"></div>
@@ -703,14 +666,7 @@ const CONFIG = {
   fromName: "katkat",              // 落款：爱你的 katkat
   startDate: "2024-10-28T00:00",   // 在一起的那一天
   anniversary: 2,                  // 第几周年（标题固定显示“两周年快乐”）
-  song: { file: "", title: "我们的歌" },   // 有歌的话写 "music.mp3"；空着就不显示音乐按钮
-
-  // 我们的歌：页面上显示一张歌曲卡片，点按钮去听
-  ourSong: {
-    title: "慢慢喜欢你", artist: "莫文蔚",
-    note: "你先喜欢上我，我慢慢喜欢上你。",
-    link: "https://www.youtube.com/results?search_query=%E8%8E%AB%E6%96%87%E8%94%9A+%E6%85%A2%E6%85%A2%E5%96%9C%E6%AC%A2%E4%BD%A0"
-  },
+  song: { file: "" },   // 背景音乐：空着就用页面自己弹的音乐盒旋律；想用录音就写 "music.mp3"
 
   // 留给以后的你：在对的时候才拆
   openWhen: [
@@ -948,12 +904,6 @@ const CONFIG = {
     li.append(label); wl.append(li);
   });
 
-  // ---------- our song ----------
-  $("songName").textContent = "《" + CONFIG.ourSong.title + "》";
-  $("songArtist").textContent = CONFIG.ourSong.artist;
-  $("songNote").textContent = CONFIG.ourSong.note;
-  $("songLink").href = CONFIG.ourSong.link;
-
   // ---------- open-when envelopes (checkbox + CSS, so they open without scripts) ----------
   const ow = $("owList");
   ow.textContent = "";
@@ -1018,34 +968,110 @@ const CONFIG = {
     }
   }
 
-  // ---------- music & toast ----------
+  // ---------- background music ----------
+  // An original music-box tune played by the browser, so no audio file is needed.
+  // It starts when the envelope is opened (a tap is required before any sound can play).
   const audio = $("bgm"), mb = $("musicBtn"), ml = $("musicLabel");
-  let toastT;
-  function toast(msg) {
-    const t = $("toast"); t.textContent = msg; t.classList.add("show");
-    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 3200);
-  }
+  const reduceMotion = reduce;
+  const Synth = (() => {
+    let ctx, master, timer, next = 0, step = 0, playing = false;
+    const EIGHTH = 60 / 76 / 2;                     // 76 bpm
+    // one chord per bar: [root (midi), minor?]  F – Dm – Bb – C – F – Dm – Gm – C
+    const CH = [[53, 0], [50, 1], [46, 0], [48, 0], [53, 0], [50, 1], [43, 1], [48, 0]];
+    const ARP = [0, 7, 12, 7, 16, 12, 7, 12];
+    const MEL = [
+      [[81, 2], [79, 2], [77, 2], [72, 2]],
+      [[74, 3], [76, 1], [77, 2], [81, 2]],
+      [[82, 2], [81, 2], [79, 2], [77, 2]],
+      [[79, 6], [76, 2]],
+      [[81, 2], [84, 2], [81, 2], [77, 2]],
+      [[77, 2], [76, 2], [74, 2], [77, 2]],
+      [[79, 2], [82, 2], [81, 2], [79, 2]],
+      [[76, 3], [74, 1], [72, 4]]
+    ];
+    const melAt = {}; let pos = 0;
+    MEL.forEach((bar) => bar.forEach(([n, len]) => { melAt[pos] = [n, len]; pos += len; }));
+    const LOOP = 64;
+    const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
+    function bell(t, m, dur, vol) {
+      [[1, 1], [2, .3], [3, .1]].forEach(([mult, g]) => {
+        const o = ctx.createOscillator(), e = ctx.createGain();
+        o.type = "sine"; o.frequency.value = hz(m) * mult;
+        e.gain.setValueAtTime(0.0001, t);
+        e.gain.exponentialRampToValueAtTime(vol * g, t + 0.012);
+        e.gain.exponentialRampToValueAtTime(0.0001, t + dur / mult);
+        o.connect(e); e.connect(master);
+        o.start(t); o.stop(t + dur + 0.05);
+      });
+    }
+    function schedule() {
+      while (next < ctx.currentTime + 0.6) {
+        const i = step % LOOP, bar = Math.floor(i / 8), k = i % 8;
+        const [root, minor] = CH[bar];
+        let iv = ARP[k]; if (iv === 16 && minor) iv = 15;
+        bell(next, root + iv, 1.5, 0.045);
+        if (melAt[i]) bell(next, melAt[i][0], Math.max(1.4, melAt[i][1] * EIGHTH * 1.8), 0.1);
+        next += EIGHTH; step++;
+      }
+    }
+    function start() {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      if (!ctx) {
+        try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}  // play even in iPhone silent mode
+        ctx = new AC();
+        master = ctx.createGain(); master.gain.value = 0;
+        const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 3000;
+        const delay = ctx.createDelay(); delay.delayTime.value = 0.34;
+        const fb = ctx.createGain(); fb.gain.value = 0.3;
+        master.connect(lp); lp.connect(ctx.destination);
+        lp.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(ctx.destination);
+      }
+      ctx.resume();
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(0.9, ctx.currentTime, 1.2);   // gentle fade-in
+      if (!playing) { next = ctx.currentTime + 0.1; schedule(); timer = setInterval(schedule, 120); playing = true; }
+      return true;
+    }
+    function stop() {
+      if (!ctx || !playing) return;
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(0, ctx.currentTime, 0.25);
+      clearInterval(timer); playing = false;
+    }
+    return { start, stop, get playing() { return playing; } };
+  })();
+
+  const useFile = !!CONFIG.song.file;
+  const isPlaying = () => useFile ? !audio.paused : Synth.playing;
   function setPlaying(on) {
     mb.classList.toggle("on", on);
     mb.setAttribute("aria-pressed", on ? "true" : "false");
-    ml.textContent = on ? "正在播放 · " + CONFIG.song.title : "播放" + CONFIG.song.title;
+    ml.textContent = on ? "背景音乐 · 开" : "背景音乐 · 关";
   }
-  ml.textContent = "播放" + CONFIG.song.title;
-  if (!CONFIG.song.file) mb.hidden = true;
   function play() {
-    if (!audio.src) audio.src = CONFIG.song.file;
-    return audio.play().then(() => setPlaying(true)).catch(() => {
-      setPlaying(false);
-      toast("还没有找到音乐：把歌曲命名为 " + CONFIG.song.file + "，放在和网页同一个文件夹里");
-    });
+    if (useFile) {
+      if (!audio.src) audio.src = CONFIG.song.file;
+      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    } else {
+      setPlaying(Synth.start());
+    }
   }
-  mb.addEventListener("click", () => { audio.paused ? play() : (audio.pause(), setPlaying(false)); });
+  function pause() { useFile ? audio.pause() : Synth.stop(); setPlaying(false); }
+  mb.hidden = false;
+  ml.textContent = "背景音乐 · 关";
+  mb.addEventListener("click", () => { isPlaying() ? pause() : play(); });
+  $("openEnv").addEventListener("change", () => { if ($("openEnv").checked && !isPlaying()) play(); });
+  let resumeOnShow = false;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && isPlaying()) { pause(); resumeOnShow = true; }
+    else if (!document.hidden && resumeOnShow) { resumeOnShow = false; play(); }
+  });
 
   $("boardBtn").addEventListener("click", (ev) => {
     ev.preventDefault();
     burst(ev.clientX, ev.clientY, 10);
-    if (CONFIG.song.file && audio.paused) play();
-    $("story").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    $("story").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   });
 })();
 </script>
