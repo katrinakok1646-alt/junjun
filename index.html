@@ -558,7 +558,7 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 36.3151%; font-size: 22.0636px; --dx: -8.117222279795776px; animation-duration: 23.7615s; animation-delay: -10.1442s;">♥</span><span class="petal" style="left: 18.2486%; font-size: 21.7803px; --dx: 30.599828020832575px; animation-duration: 18.7147s; animation-delay: -14.925s;">❀</span><span class="petal" style="left: 68.0021%; font-size: 21.729px; --dx: 35.906452556351454px; animation-duration: 23.6155s; animation-delay: -22.4945s;">♡</span><span class="petal" style="left: 97.9669%; font-size: 23.1011px; --dx: 55.61373353429718px; animation-duration: 27.6338s; animation-delay: -7.28572s;">✿</span><span class="petal" style="left: 11.4954%; font-size: 20.6967px; --dx: -19.453889336496133px; animation-duration: 14.975s; animation-delay: -27.7854s;">♥</span><span class="petal" style="left: 47.3485%; font-size: 10.2829px; --dx: 28.881886679049074px; animation-duration: 27.824s; animation-delay: -26.5655s;">❀</span><span class="petal" style="left: 63.0357%; font-size: 15.617px; --dx: 9.511916278886076px; animation-duration: 26.3265s; animation-delay: -26.3437s;">♡</span><span class="petal" style="left: 77.0079%; font-size: 19.1089px; --dx: -55.15150365391417px; animation-duration: 25.8917s; animation-delay: -9.28269s;">✿</span><span class="petal" style="left: 46.0048%; font-size: 20.8305px; --dx: -56.094091881065054px; animation-duration: 14.648s; animation-delay: -7.76382s;">♥</span><span class="petal" style="left: 24.2383%; font-size: 22.9043px; --dx: 57.2144536080623px; animation-duration: 17.9645s; animation-delay: -13.5433s;">❀</span><span class="petal" style="left: 4.47655%; font-size: 19.6119px; --dx: -52.96346179771429px; animation-duration: 23.1603s; animation-delay: -8.3598s;">♡</span><span class="petal" style="left: 35.6864%; font-size: 23.5745px; --dx: -26.447304816054782px; animation-duration: 18.4416s; animation-delay: -3.98336s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 11.4435%; font-size: 20.9023px; --dx: -57.56767642125121px; animation-duration: 24.5728s; animation-delay: -14.1587s;">♥</span><span class="petal" style="left: 12.4628%; font-size: 14.3667px; --dx: -29.55082097191426px; animation-duration: 24.6556s; animation-delay: -2.38735s;">❀</span><span class="petal" style="left: 19.6067%; font-size: 22.7512px; --dx: -25.361046897969345px; animation-duration: 26.963s; animation-delay: -13.0978s;">♡</span><span class="petal" style="left: 77.8189%; font-size: 15.4671px; --dx: -12.32929504850076px; animation-duration: 18.6401s; animation-delay: -20.7684s;">✿</span><span class="petal" style="left: 71.3936%; font-size: 21.6183px; --dx: 38.447902301129574px; animation-duration: 15.754s; animation-delay: -10.6604s;">♥</span><span class="petal" style="left: 91.6764%; font-size: 13.4698px; --dx: 55.81705969383694px; animation-duration: 22.4757s; animation-delay: -23.8955s;">❀</span><span class="petal" style="left: 9.17901%; font-size: 19.6962px; --dx: 40.46299215804814px; animation-duration: 19.4321s; animation-delay: -23.962s;">♡</span><span class="petal" style="left: 34.4847%; font-size: 10.568px; --dx: 6.405307669700946px; animation-duration: 15.6846s; animation-delay: -10.2347s;">✿</span><span class="petal" style="left: 11.9165%; font-size: 12.5643px; --dx: -33.74016314927856px; animation-duration: 22.01s; animation-delay: -27.9134s;">♥</span><span class="petal" style="left: 39.503%; font-size: 21.9943px; --dx: -12.329857646547616px; animation-duration: 27.9078s; animation-delay: -2.35883s;">❀</span><span class="petal" style="left: 84.8891%; font-size: 15.1409px; --dx: -21.335394034837933px; animation-duration: 17.0932s; animation-delay: -17.764s;">♡</span><span class="petal" style="left: 1.44472%; font-size: 16.2387px; --dx: -26.078820530880726px; animation-duration: 19.6939s; animation-delay: -8.7038s;">✿</span></div>
 
 <div class="lock" id="lock" hidden="">
   <div class="lock-emoji" aria-hidden="true">⏳</div>
@@ -624,7 +624,7 @@ button { font: inherit; color: inherit; }
       <div class="unit days"><b id="cD">730</b><span>天</span></div>
       <div class="unit"><b id="cH">00</b><span>时</span></div>
       <div class="unit"><b id="cM">00</b><span>分</span></div>
-      <div class="unit"><b id="cS">00</b><span>秒</span></div>
+      <div class="unit"><b id="cS">01</b><span>秒</span></div>
     </div>
     <p class="still"><b aria-hidden="true">♥</b>还在一秒一秒增加中</p>
     <div class="stats">
@@ -876,6 +876,7 @@ const CONFIG = {
     if (!CONFIG.unlockAt) return;
     const at = new Date(CONFIG.unlockAt), lock = $("lock");
     if (Date.now() >= at) return;
+    if (/[?&]katkat\b/.test(location.search)) return;   // secret preview link for katkat: add ?katkat to skip the lock
     $("lockTo").textContent = CONFIG.toName;
     $("lockAt").textContent = fmtDate(at) + " " + pad(at.getHours()) + ":" + pad(at.getMinutes());
     lock.hidden = false;
