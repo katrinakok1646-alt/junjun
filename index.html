@@ -2,6 +2,15 @@
 <html lang="zh-CN" class="static"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="junjun，你有一封信 💌">
+<meta property="og:description" content="来自 katkat 的两周年来信 · 轻触打开">
+<meta property="og:image" content="https://katrinakok1646-alt.github.io/junjun/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://katrinakok1646-alt.github.io/junjun/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="来自 katkat 的两周年来信 · 轻触打开">
 </head>
 <body>
 <!-- ARTIFACT-START -->
@@ -76,6 +85,24 @@ h1, h2, h3 { font-weight: 400; margin: 0; text-wrap: balance; }
 p { margin: 0; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- midnight lock (scripts only; shown when opened before unlockAt) ---------- */
+.lock {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(16px, env(safe-area-inset-left, 0px));
+  background: radial-gradient(120% 80% at 50% 40%, #4A2233 0%, #22101A 72%);
+  color: #F6E4E9; text-align: center;
+}
+.lock p { margin: 0; }
+.lock-emoji { font-size: 56px; animation: tilt 2.4s ease-in-out infinite; }
+@keyframes tilt { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
+.lock-title { font-family: var(--f-hand); font-size: clamp(28px, 8vw, 40px); color: #FFD3DE; }
+.lock-sub { font-size: 15px; color: #E9C9D3; }
+.lock-sub b { font-family: var(--f-num); font-weight: 500; color: #FFD3DE; }
+.lock-time { font-family: var(--f-num); font-weight: 500; font-size: clamp(46px, 15vw, 76px); letter-spacing: .04em; color: #FF9DB5; font-variant-numeric: tabular-nums; margin-block: 6px; }
+.lock-sass { font-size: 14px; line-height: 1.9; color: #C9A3B0; }
+.lock.unlocking { animation: introOut 1s ease forwards; }
 
 /* ---------- envelope intro ---------- */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
@@ -531,8 +558,15 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 89.7695%; font-size: 15.3259px; --dx: -42.64408314261925px; animation-duration: 21.0146s; animation-delay: -23.2809s;">♥</span><span class="petal" style="left: 22.7364%; font-size: 19.9949px; --dx: -40.22796316043619px; animation-duration: 14.125s; animation-delay: -8.02827s;">❀</span><span class="petal" style="left: 4.55483%; font-size: 12.1061px; --dx: -18.9486832816134px; animation-duration: 24.2049s; animation-delay: -9.92094s;">♡</span><span class="petal" style="left: 91.3239%; font-size: 11.8504px; --dx: 48.60363905833172px; animation-duration: 14.3122s; animation-delay: -12.3536s;">✿</span><span class="petal" style="left: 49.561%; font-size: 23.2371px; --dx: -11.00305137673049px; animation-duration: 22.5373s; animation-delay: -27.2704s;">♥</span><span class="petal" style="left: 34.3811%; font-size: 15.2479px; --dx: -29.243789734394344px; animation-duration: 17.1496s; animation-delay: -14.5699s;">❀</span><span class="petal" style="left: 52.4053%; font-size: 23.8763px; --dx: -21.39290519163562px; animation-duration: 23.9753s; animation-delay: -27.9157s;">♡</span><span class="petal" style="left: 58.9889%; font-size: 14.8332px; --dx: 13.287521386487015px; animation-duration: 20.5931s; animation-delay: -25.5623s;">✿</span><span class="petal" style="left: 34.3155%; font-size: 21.9713px; --dx: -7.425864409756123px; animation-duration: 25.4211s; animation-delay: -5.75513s;">♥</span><span class="petal" style="left: 34.9593%; font-size: 15.1162px; --dx: -13.69034573261034px; animation-duration: 18.9214s; animation-delay: -12.1588s;">❀</span><span class="petal" style="left: 35.5024%; font-size: 11.0572px; --dx: 3.5003377568714598px; animation-duration: 17.9097s; animation-delay: -27.1133s;">♡</span><span class="petal" style="left: 60.2542%; font-size: 13.5381px; --dx: -34.54667012759085px; animation-duration: 20.9546s; animation-delay: -15.7066s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 36.3151%; font-size: 22.0636px; --dx: -8.117222279795776px; animation-duration: 23.7615s; animation-delay: -10.1442s;">♥</span><span class="petal" style="left: 18.2486%; font-size: 21.7803px; --dx: 30.599828020832575px; animation-duration: 18.7147s; animation-delay: -14.925s;">❀</span><span class="petal" style="left: 68.0021%; font-size: 21.729px; --dx: 35.906452556351454px; animation-duration: 23.6155s; animation-delay: -22.4945s;">♡</span><span class="petal" style="left: 97.9669%; font-size: 23.1011px; --dx: 55.61373353429718px; animation-duration: 27.6338s; animation-delay: -7.28572s;">✿</span><span class="petal" style="left: 11.4954%; font-size: 20.6967px; --dx: -19.453889336496133px; animation-duration: 14.975s; animation-delay: -27.7854s;">♥</span><span class="petal" style="left: 47.3485%; font-size: 10.2829px; --dx: 28.881886679049074px; animation-duration: 27.824s; animation-delay: -26.5655s;">❀</span><span class="petal" style="left: 63.0357%; font-size: 15.617px; --dx: 9.511916278886076px; animation-duration: 26.3265s; animation-delay: -26.3437s;">♡</span><span class="petal" style="left: 77.0079%; font-size: 19.1089px; --dx: -55.15150365391417px; animation-duration: 25.8917s; animation-delay: -9.28269s;">✿</span><span class="petal" style="left: 46.0048%; font-size: 20.8305px; --dx: -56.094091881065054px; animation-duration: 14.648s; animation-delay: -7.76382s;">♥</span><span class="petal" style="left: 24.2383%; font-size: 22.9043px; --dx: 57.2144536080623px; animation-duration: 17.9645s; animation-delay: -13.5433s;">❀</span><span class="petal" style="left: 4.47655%; font-size: 19.6119px; --dx: -52.96346179771429px; animation-duration: 23.1603s; animation-delay: -8.3598s;">♡</span><span class="petal" style="left: 35.6864%; font-size: 23.5745px; --dx: -26.447304816054782px; animation-duration: 18.4416s; animation-delay: -3.98336s;">✿</span></div>
 
+<div class="lock" id="lock" hidden="">
+  <div class="lock-emoji" aria-hidden="true">⏳</div>
+  <p class="lock-title"><span id="lockTo">junjun</span>，还没到时间哦</p>
+  <p class="lock-sub">这封信要等到 <b id="lockAt">2026.10.28 00:00</b> 才能拆 💌</p>
+  <p class="lock-time" id="lockTime" aria-live="off">00:00:00</p>
+  <p class="lock-sass">偷看是没有用的 hor 😤<br>先去洗澡、准备好，十二点见 🐱</p>
+</div>
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
   <div class="intro-petals" aria-hidden="true"><span>♥</span><span>❀</span><span>♡</span><span>✿</span><span>♥</span><span>♡</span><span>❀</span><span>♥</span></div>
@@ -590,7 +624,7 @@ button { font: inherit; color: inherit; }
       <div class="unit days"><b id="cD">730</b><span>天</span></div>
       <div class="unit"><b id="cH">00</b><span>时</span></div>
       <div class="unit"><b id="cM">00</b><span>分</span></div>
-      <div class="unit"><b id="cS">01</b><span>秒</span></div>
+      <div class="unit"><b id="cS">00</b><span>秒</span></div>
     </div>
     <p class="still"><b aria-hidden="true">♥</b>还在一秒一秒增加中</p>
     <div class="stats">
@@ -687,6 +721,7 @@ const CONFIG = {
   toName: "junjun",              // 你怎么称呼他
   fromName: "katkat",              // 落款：爱你的 katkat
   startDate: "2024-10-28T00:00",   // 在一起的那一天
+  unlockAt: "2026-10-28T00:00",    // 这个时间之前打开，只会看到倒数；写 "" 就不上锁
   anniversary: 2,                  // 第几周年（标题固定显示“两周年快乐”）
   song: { file: "" },   // 背景音乐：空着就用页面自己弹的音乐盒旋律；想用录音就写 "music.mp3"
 
@@ -835,6 +870,30 @@ const CONFIG = {
   $("signDate").textContent = fmtDate(anniDate);
   $("introDates").textContent = fmtDate(start) + " — " + fmtDate(anniDate);
   $("wishTitle").textContent = "第" + cnNum(years + 1) + "年，想和你一起做的事 ✨";
+
+  // ---------- midnight lock ----------
+  (function () {
+    if (!CONFIG.unlockAt) return;
+    const at = new Date(CONFIG.unlockAt), lock = $("lock");
+    if (Date.now() >= at) return;
+    $("lockTo").textContent = CONFIG.toName;
+    $("lockAt").textContent = fmtDate(at) + " " + pad(at.getHours()) + ":" + pad(at.getMinutes());
+    lock.hidden = false;
+    function tickLock() {
+      const left = at - Date.now();
+      if (left <= 0) {
+        clearInterval(t);
+        $("lockTime").textContent = "00:00:00";
+        lock.classList.add("unlocking");
+        setTimeout(() => { lock.hidden = true; }, 1050);
+        return;
+      }
+      const d = Math.floor(left / DAY), h = Math.floor(left / 3600000) % 24, m = Math.floor(left / 60000) % 60, sec = Math.floor(left / 1000) % 60;
+      $("lockTime").textContent = (d ? d + " 天 " : "") + pad(h) + ":" + pad(m) + ":" + pad(sec);
+    }
+    const t = setInterval(tickLock, 1000);
+    tickLock();
+  })();
 
   // ---------- live counter ----------
   function tick() {
