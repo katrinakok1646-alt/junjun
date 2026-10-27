@@ -521,7 +521,7 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 78.0067%; font-size: 23.9682px; --dx: -18.206442370075138px; animation-duration: 15.2642s; animation-delay: -8.39699s;">♥</span><span class="petal" style="left: 0.858355%; font-size: 23.5625px; --dx: 47.30715377906604px; animation-duration: 18.484s; animation-delay: -22.7432s;">❀</span><span class="petal" style="left: 23.4675%; font-size: 20.1112px; --dx: 31.91379905250659px; animation-duration: 21.763s; animation-delay: -15.0624s;">♡</span><span class="petal" style="left: 29.8155%; font-size: 23.0941px; --dx: 19.947703440203824px; animation-duration: 20.1356s; animation-delay: -6.52839s;">✿</span><span class="petal" style="left: 80.2051%; font-size: 11.2492px; --dx: 54.4319802273436px; animation-duration: 14.8469s; animation-delay: -7.92639s;">♥</span><span class="petal" style="left: 38.5096%; font-size: 13.7165px; --dx: 37.24510961444035px; animation-duration: 15.8092s; animation-delay: -19.3321s;">❀</span><span class="petal" style="left: 3.27006%; font-size: 23.7593px; --dx: -52.60426090527312px; animation-duration: 14.7965s; animation-delay: -17.5676s;">♡</span><span class="petal" style="left: 20.255%; font-size: 21.3888px; --dx: -50.28212517811063px; animation-duration: 20.718s; animation-delay: -19.9247s;">✿</span><span class="petal" style="left: 91.1065%; font-size: 17.119px; --dx: 46.07760161883749px; animation-duration: 15.2306s; animation-delay: -0.55427s;">♥</span><span class="petal" style="left: 26.2907%; font-size: 19.4787px; --dx: -27.793890986184522px; animation-duration: 22.0543s; animation-delay: -10.2299s;">❀</span><span class="petal" style="left: 59.8584%; font-size: 16.8293px; --dx: 34.11060428562604px; animation-duration: 15.1854s; animation-delay: -10.0571s;">♡</span><span class="petal" style="left: 68.0238%; font-size: 14.5636px; --dx: -44.506570747059484px; animation-duration: 15.4896s; animation-delay: -19.2227s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 96.893%; font-size: 19.0918px; --dx: -3.343606867788324px; animation-duration: 19.385s; animation-delay: -6.36749s;">♥</span><span class="petal" style="left: 57.4813%; font-size: 13.2853px; --dx: -44.94751424193923px; animation-duration: 14.9212s; animation-delay: -25.1023s;">❀</span><span class="petal" style="left: 26.404%; font-size: 16.2563px; --dx: -33.27455218479707px; animation-duration: 17.246s; animation-delay: -23.6434s;">♡</span><span class="petal" style="left: 45.1447%; font-size: 16.4999px; --dx: 26.007928488022202px; animation-duration: 21.3895s; animation-delay: -24.7004s;">✿</span><span class="petal" style="left: 58.3473%; font-size: 12.4487px; --dx: -10.03279803834726px; animation-duration: 22.8714s; animation-delay: -17.1772s;">♥</span><span class="petal" style="left: 7.5759%; font-size: 17.2637px; --dx: 19.98809001286395px; animation-duration: 16.981s; animation-delay: -8.75573s;">❀</span><span class="petal" style="left: 66.5596%; font-size: 10.7749px; --dx: -35.576059430057875px; animation-duration: 16.5824s; animation-delay: -11.7309s;">♡</span><span class="petal" style="left: 78.9759%; font-size: 18.5032px; --dx: 20.173123584405232px; animation-duration: 19.9435s; animation-delay: -8.33448s;">✿</span><span class="petal" style="left: 88.8132%; font-size: 16.5801px; --dx: -28.799446687181224px; animation-duration: 17.8641s; animation-delay: -21.7121s;">♥</span><span class="petal" style="left: 37.9702%; font-size: 14.4115px; --dx: 47.58505936395434px; animation-duration: 21.0024s; animation-delay: -23.9777s;">❀</span><span class="petal" style="left: 60.1903%; font-size: 16.8186px; --dx: 43.124178708947426px; animation-duration: 23.182s; animation-delay: -5.85653s;">♡</span><span class="petal" style="left: 78.6339%; font-size: 14.7404px; --dx: -57.2904006573898px; animation-duration: 18.1297s; animation-delay: -27.6434s;">✿</span></div>
 
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
@@ -1030,51 +1030,48 @@ const CONFIG = {
     return actx;
   }
   const Synth = (() => {
-    let ctx, master, timer, next = 0, step = 0, playing = false, padWave;
-    const Q = 60 / 66, E = Q / 2;                 // 66 bpm
-    // one chord per bar: [root (midi), third, seventh]  Fmaj7 Em7 Dm7 Cmaj7 Bbmaj7 Am7 Gm7 C7
-    const CH = [[53, 4, 11], [52, 3, 10], [50, 3, 10], [48, 4, 11], [46, 4, 11], [45, 3, 10], [43, 3, 10], [48, 4, 10]];
+    let ctx, master, timer, next = 0, step = 0, playing = false;
+    const Q = 60 / 92, E = Q / 2;                 // 92 bpm, light and bouncy
+    // one major chord per bar: [bass note, chord notes]   F  C  Bb  C | F  Bb  C  F
+    const F = [53, [69, 72]], C = [48, [64, 67]], Bb = [46, [62, 65]];
+    const CH = [F, C, Bb, C, F, Bb, C, F];
     const MEL = [
-      [[76, 1], [77, 1], [81, 2]], [[79, 1.5], [76, .5], [74, 2]], [[77, 1], [76, 1], [74, 1], [69, 1]], [[74, 1], [72, 3]],
-      [[74, 1], [77, 1], [81, 2]], [[79, 1.5], [81, .5], [76, 2]], [[77, 1], [74, 1], [70, 1], [74, 1]], [[79, 2], [76, 2]]
+      [[72, .5], [77, .5], [81, 1], [79, .5], [81, .5], [84, 1]],
+      [[79, 1], [76, 1], [72, 2]],
+      [[74, .5], [77, .5], [82, 1], [81, .5], [79, .5], [77, 1]],
+      [[79, 2], [76, 1], [79, 1]],
+      [[81, .5], [79, .5], [77, 1], [81, 1], [84, 1]],
+      [[86, 1], [84, .5], [82, .5], [81, 2]],
+      [[79, .5], [81, .5], [79, .5], [76, .5], [72, 1], [76, 1]],
+      [[77, 2], [72, 1], [76, 1]]
     ];
     const melAt = {};                              // eighth index -> [note, beats]
     MEL.forEach((bar, b) => { let e = b * 8; bar.forEach(([n, l]) => { melAt[e] = [n, l]; e += l * 2; }); });
     const LOOP = 64;
     const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
     function piano(t, m, dur, vel) {
-      const f = hz(m), T1 = Math.min(3.2, 2.6 * Math.pow(440 / f, 0.35)), end = t + Math.min(4, dur + 1.6);
+      const f = hz(m), T1 = Math.min(1.8, 1.5 * Math.pow(440 / f, 0.35)), end = t + Math.min(2.6, dur + 1.2);
       for (let h = 1; h <= 6; h++) {
         const fh = f * h * (1 + 0.0004 * h * h);
         if (fh > 9000) break;
         const o = ctx.createOscillator(), g = ctx.createGain();
         o.frequency.value = fh;
         g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(vel / Math.pow(h, 1.4), t + 0.004);
-        g.gain.setTargetAtTime(0, t + 0.004, T1 / (1 + 0.7 * (h - 1)));
-        g.gain.setTargetAtTime(0, t + dur, 0.35);
+        g.gain.linearRampToValueAtTime(vel / Math.pow(h, 1.2), t + 0.003);
+        g.gain.setTargetAtTime(0, t + 0.003, T1 / (1 + 0.7 * (h - 1)));
+        g.gain.setTargetAtTime(0, t + dur, 0.2);
         o.connect(g); g.connect(master); o.start(t); o.stop(end);
       }
-    }
-    function pad(t, m, dur, vel) {
-      [-0.004, 0.004].forEach((d) => {
-        const o = ctx.createOscillator(), g = ctx.createGain();
-        o.setPeriodicWave(padWave); o.frequency.value = hz(m) * (1 + d);
-        g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(vel, t + 1.2);
-        g.gain.setValueAtTime(vel, t + dur);
-        g.gain.linearRampToValueAtTime(0, t + dur + 1.5);
-        o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + 1.6);
-      });
     }
     function schedule() {
       while (next < ctx.currentTime + 0.8) {
         const i = step % LOOP, b = Math.floor(i / 8), k = i % 8;
-        const [root, th, sv] = CH[b];
-        const pat = [0, 7, 12, 12 + th, 19, 12 + th, 12, 7];
-        piano(next, root + pat[k], E * 1.6, k ? 0.10 : 0.13);
-        if (melAt[i]) piano(next, melAt[i][0], melAt[i][1] * Q, 0.26);
-        if (k === 0) [12, 12 + th, 19, 12 + sv].forEach((iv) => pad(next, root + iv, 4 * Q, 0.022));
+        const [bass, chord] = CH[b];
+        // "oom-pah": bass on beats 1 and 3, a light chord on beats 2 and 4
+        if (k === 0) piano(next, bass, Q, 0.11);
+        if (k === 4) piano(next, bass + 7, Q, 0.09);
+        if (k === 2 || k === 6) chord.forEach((m) => piano(next, m, E, 0.06));
+        if (melAt[i]) piano(next, melAt[i][0], melAt[i][1] * Q * 0.9, 0.22);
         next += E; step++;
       }
     }
@@ -1091,13 +1088,12 @@ const CONFIG = {
       if (!ctx) {
         ctx = getCtx();
         if (!ctx) return false;
-        padWave = ctx.createPeriodicWave(new Float32Array([0, 0, 0, 0, 0, 0]), new Float32Array([0, 1, 0, 1 / 9, 0, 1 / 25]));
         master = ctx.createGain(); master.gain.value = 1;
         const out = ctx.createGain(); out.gain.value = 0;
-        const dry = ctx.createGain(); dry.gain.value = 0.85;
-        const wet = ctx.createGain(); wet.gain.value = 0.96;
-        const verb = ctx.createConvolver(); verb.normalize = false; verb.buffer = impulse(3.5, 1.1);
-        const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 5000;
+        const dry = ctx.createGain(); dry.gain.value = 0.9;
+        const wet = ctx.createGain(); wet.gain.value = 0.35;
+        const verb = ctx.createConvolver(); verb.normalize = false; verb.buffer = impulse(1.6, 0.4);
+        const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 6500;
         const limiter = ctx.createDynamicsCompressor(); limiter.threshold.value = -6; limiter.ratio.value = 12;
         master.connect(dry); master.connect(verb); verb.connect(wet);
         dry.connect(lp); wet.connect(lp); lp.connect(out); out.connect(limiter); limiter.connect(ctx.destination);
@@ -1106,7 +1102,7 @@ const CONFIG = {
       ctx.resume();
       const g = master.out.gain;
       g.cancelScheduledValues(ctx.currentTime);
-      g.setTargetAtTime(0.7, ctx.currentTime, 1.2);   // gentle fade-in
+      g.setTargetAtTime(0.3, ctx.currentTime, 1.2);   // gentle fade-in, kept quiet so it stays in the background
       if (!playing) { next = ctx.currentTime + 0.1; schedule(); timer = setInterval(schedule, 150); playing = true; }
       return true;
     }
@@ -1122,8 +1118,8 @@ const CONFIG = {
       if (!ctx || !playing) return;
       const g = master.out.gain, t = ctx.currentTime;
       g.cancelScheduledValues(t);
-      g.setTargetAtTime(0.25, t, 0.04);
-      g.setTargetAtTime(0.7, t + 0.6, 0.5);
+      g.setTargetAtTime(0.06, t, 0.03);
+      g.setTargetAtTime(0.3, t + 0.7, 0.5);
     }
     return { start, stop, duck, get playing() { return playing; } };
   })();
@@ -1137,8 +1133,8 @@ const CONFIG = {
       const c = getCtx();
       if (!c) return null;
       if (!out) {
-        const lim = c.createDynamicsCompressor(); lim.threshold.value = -4; lim.ratio.value = 12; lim.attack.value = 0.002;
-        out = c.createGain(); out.gain.value = 1; out.connect(lim); lim.connect(c.destination);
+        const lim = c.createDynamicsCompressor(); lim.threshold.value = -3; lim.ratio.value = 20; lim.attack.value = 0.001;
+        out = c.createGain(); out.gain.value = 1.8; out.connect(lim); lim.connect(c.destination);
         noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate);
         const d = noiseBuf.getChannelData(0);
         for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
