@@ -521,7 +521,7 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 65.4918%; font-size: 17.4935px; --dx: 31.43385564394258px; animation-duration: 19.9298s; animation-delay: -25.7157s;">♥</span><span class="petal" style="left: 58.5806%; font-size: 17.984px; --dx: 24.988778313595446px; animation-duration: 27.7509s; animation-delay: -27.0527s;">❀</span><span class="petal" style="left: 29.8686%; font-size: 19.8468px; --dx: 33.80749836652109px; animation-duration: 14.8643s; animation-delay: -20.3202s;">♡</span><span class="petal" style="left: 4.14595%; font-size: 10.4231px; --dx: 55.43189034150484px; animation-duration: 18.3208s; animation-delay: -9.55462s;">✿</span><span class="petal" style="left: 38.8913%; font-size: 17.3109px; --dx: -55.28719876659527px; animation-duration: 17.2288s; animation-delay: -14.0216s;">♥</span><span class="petal" style="left: 7.19042%; font-size: 17.8045px; --dx: -8.025866137052894px; animation-duration: 15.1204s; animation-delay: -10.1353s;">❀</span><span class="petal" style="left: 9.23103%; font-size: 18.1632px; --dx: -45.726095853644686px; animation-duration: 21.5386s; animation-delay: -3.82382s;">♡</span><span class="petal" style="left: 64.8177%; font-size: 16.5624px; --dx: -24.348151134108335px; animation-duration: 19.1542s; animation-delay: -27.0725s;">✿</span><span class="petal" style="left: 1.76108%; font-size: 22.8804px; --dx: 14.63659782744125px; animation-duration: 14.6708s; animation-delay: -5.76774s;">♥</span><span class="petal" style="left: 33.4918%; font-size: 11.6621px; --dx: 59.13231353098426px; animation-duration: 21.3772s; animation-delay: -9.78101s;">❀</span><span class="petal" style="left: 93.8552%; font-size: 10.2099px; --dx: 31.30955119495225px; animation-duration: 16.5685s; animation-delay: -4.44459s;">♡</span><span class="petal" style="left: 58.2361%; font-size: 10.3747px; --dx: -47.55329335658556px; animation-duration: 22.5021s; animation-delay: -24.1955s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 78.0067%; font-size: 23.9682px; --dx: -18.206442370075138px; animation-duration: 15.2642s; animation-delay: -8.39699s;">♥</span><span class="petal" style="left: 0.858355%; font-size: 23.5625px; --dx: 47.30715377906604px; animation-duration: 18.484s; animation-delay: -22.7432s;">❀</span><span class="petal" style="left: 23.4675%; font-size: 20.1112px; --dx: 31.91379905250659px; animation-duration: 21.763s; animation-delay: -15.0624s;">♡</span><span class="petal" style="left: 29.8155%; font-size: 23.0941px; --dx: 19.947703440203824px; animation-duration: 20.1356s; animation-delay: -6.52839s;">✿</span><span class="petal" style="left: 80.2051%; font-size: 11.2492px; --dx: 54.4319802273436px; animation-duration: 14.8469s; animation-delay: -7.92639s;">♥</span><span class="petal" style="left: 38.5096%; font-size: 13.7165px; --dx: 37.24510961444035px; animation-duration: 15.8092s; animation-delay: -19.3321s;">❀</span><span class="petal" style="left: 3.27006%; font-size: 23.7593px; --dx: -52.60426090527312px; animation-duration: 14.7965s; animation-delay: -17.5676s;">♡</span><span class="petal" style="left: 20.255%; font-size: 21.3888px; --dx: -50.28212517811063px; animation-duration: 20.718s; animation-delay: -19.9247s;">✿</span><span class="petal" style="left: 91.1065%; font-size: 17.119px; --dx: 46.07760161883749px; animation-duration: 15.2306s; animation-delay: -0.55427s;">♥</span><span class="petal" style="left: 26.2907%; font-size: 19.4787px; --dx: -27.793890986184522px; animation-duration: 22.0543s; animation-delay: -10.2299s;">❀</span><span class="petal" style="left: 59.8584%; font-size: 16.8293px; --dx: 34.11060428562604px; animation-duration: 15.1854s; animation-delay: -10.0571s;">♡</span><span class="petal" style="left: 68.0238%; font-size: 14.5636px; --dx: -44.506570747059484px; animation-duration: 15.4896s; animation-delay: -19.2227s;">✿</span></div>
 
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
@@ -580,7 +580,7 @@ button { font: inherit; color: inherit; }
       <div class="unit days"><b id="cD">730</b><span>天</span></div>
       <div class="unit"><b id="cH">00</b><span>时</span></div>
       <div class="unit"><b id="cM">00</b><span>分</span></div>
-      <div class="unit"><b id="cS">00</b><span>秒</span></div>
+      <div class="unit"><b id="cS">01</b><span>秒</span></div>
     </div>
     <p class="still"><b aria-hidden="true">♥</b>还在一秒一秒增加中</p>
     <div class="stats">
@@ -1117,7 +1117,15 @@ const CONFIG = {
       g.setTargetAtTime(0, ctx.currentTime, 0.25);
       clearInterval(timer); playing = false;
     }
-    return { start, stop, get playing() { return playing; } };
+    // briefly lower the music so a sound effect can be heard
+    function duck() {
+      if (!ctx || !playing) return;
+      const g = master.out.gain, t = ctx.currentTime;
+      g.cancelScheduledValues(t);
+      g.setTargetAtTime(0.25, t, 0.04);
+      g.setTargetAtTime(0.7, t + 0.6, 0.5);
+    }
+    return { start, stop, duck, get playing() { return playing; } };
   })();
 
   // ---------- sound effects (made in the browser, like the music) ----------
@@ -1129,7 +1137,8 @@ const CONFIG = {
       const c = getCtx();
       if (!c) return null;
       if (!out) {
-        out = c.createGain(); out.gain.value = 0.55; out.connect(c.destination);
+        const lim = c.createDynamicsCompressor(); lim.threshold.value = -4; lim.ratio.value = 12; lim.attack.value = 0.002;
+        out = c.createGain(); out.gain.value = 1; out.connect(lim); lim.connect(c.destination);
         noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate);
         const d = noiseBuf.getChannelData(0);
         for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
@@ -1155,24 +1164,24 @@ const CONFIG = {
       o.connect(g); g.connect(out); o.start(t); o.stop(t + dur + 0.05);
     }
     function bell(c, t, m, dur, vol) { tone(c, t, hz(m), dur, vol); tone(c, t, hz(m) * 2, dur / 2, vol * 0.25); }
-    function go(fn) { if (!soundOn) return; const c = init(); if (c) fn(c, c.currentTime + 0.01); }
+    function go(fn) { if (!soundOn) return; const c = init(); if (!c) return; Synth.duck(); fn(c, c.currentTime + 0.01); }
     return {
       // wax seal cracks, the letter slides out, then a little chime
       seal: () => go((c, t) => {
-        noise(c, t, 0.12, 2200, 900, 1.5, 0.5); noise(c, t + 0.04, 0.09, 1200, 600, 1.5, 0.35); tone(c, t, 160, 0.12, 0.25, 60);
-        noise(c, t + 1.0, 0.8, 500, 2600, 0.7, 0.16, 0.25);
-        [77, 81, 84, 89].forEach((m, i) => bell(c, t + 2.1 + i * 0.11, m, 1.6, 0.07));
+        noise(c, t, 0.12, 2400, 1000, 1.2, 1.3); noise(c, t + 0.04, 0.1, 1500, 700, 1.2, 0.9); tone(c, t, 420, 0.12, 0.5, 180);
+        noise(c, t + 1.0, 0.8, 600, 3000, 0.6, 0.45, 0.25);
+        [77, 81, 84, 89].forEach((m, i) => bell(c, t + 2.1 + i * 0.11, m, 1.6, 0.26));
       }),
       // ticket punch
       punch: () => go((c, t) => {
-        noise(c, t, 0.05, 3000, 2000, 2, 0.5); tone(c, t, 180, 0.09, 0.3, 70);
-        noise(c, t + 0.11, 0.05, 2400, 1600, 2, 0.4);
-        bell(c, t + 0.22, 84, 0.9, 0.06); bell(c, t + 0.32, 88, 0.9, 0.06);
+        noise(c, t, 0.06, 3200, 2000, 1.5, 1.3); tone(c, t, 480, 0.09, 0.5, 200);
+        noise(c, t + 0.11, 0.06, 2600, 1600, 1.5, 1.1);
+        bell(c, t + 0.22, 84, 0.9, 0.3); bell(c, t + 0.32, 88, 0.9, 0.3);
       }),
       // love button: a pop, and the chime climbs higher with every tap
-      love: (lvl) => go((c, t) => { tone(c, t, 420, 0.1, 0.18, 950); bell(c, t + 0.04, [77, 79, 81, 84, 86, 89][lvl % 6], 1.2, 0.09); }),
-      tick: (on) => go((c, t) => { if (on) { bell(c, t, 88, 0.9, 0.07); bell(c, t + 0.08, 93, 1.1, 0.06); } else tone(c, t, 300, 0.08, 0.08, 200); }),
-      unfold: (open) => go((c, t) => { noise(c, t, open ? 0.5 : 0.3, 700, open ? 2800 : 1200, 0.8, 0.14, 0.08); if (open) bell(c, t + 0.25, 84, 1.4, 0.05); })
+      love: (lvl) => go((c, t) => { tone(c, t, 500, 0.1, 0.45, 1100); bell(c, t + 0.04, [77, 79, 81, 84, 86, 89][lvl % 6], 1.2, 0.4); }),
+      tick: (on) => go((c, t) => { if (on) { bell(c, t, 88, 0.9, 0.35); bell(c, t + 0.08, 93, 1.1, 0.3); } else tone(c, t, 600, 0.08, 0.3, 400); }),
+      unfold: (open) => go((c, t) => { noise(c, t, open ? 0.5 : 0.3, 800, open ? 3200 : 1500, 0.6, 0.5, 0.08); if (open) bell(c, t + 0.25, 84, 1.4, 0.28); })
     };
   })();
 
