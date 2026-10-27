@@ -103,6 +103,24 @@ button { font: inherit; color: inherit; }
 .lock-time { font-family: var(--f-num); font-weight: 500; font-size: clamp(46px, 15vw, 76px); letter-spacing: .04em; color: #FF9DB5; font-variant-numeric: tabular-nums; margin-block: 6px; }
 .lock-sass { font-size: 14px; line-height: 1.9; color: #C9A3B0; }
 .lock.unlocking { animation: introOut 1s ease forwards; }
+.guess { display: flex; flex-direction: column; align-items: center; gap: 10px; width: min(100%, 340px); margin-top: 8px; }
+.guess-q { font-size: 15px; color: #F6E4E9; }
+.guess-form { display: flex; gap: 8px; width: 100%; }
+.guess-form input {
+  flex: 1; min-width: 0; font: inherit; font-size: 16px; color: #FFF3F6;
+  background: rgba(255, 255, 255, .08); border: 1.5px solid #7A4558; border-radius: 999px; padding: 10px 16px; outline: none;
+}
+.guess-form input::placeholder { color: #B58C9B; }
+.guess-form input:focus { border-color: #FF9DB5; }
+.guess-form button {
+  appearance: none; border: 0; cursor: pointer; font: inherit; font-weight: 500; font-size: 16px;
+  background: #FF7E9E; color: #2A0E18; border-radius: 999px; padding: 0 20px;
+}
+.guess-form button:disabled, .guess-form input:disabled { opacity: .45; cursor: default; }
+.guess-reply { min-height: 1.6em; font-family: var(--f-hand); font-size: 20px; color: #FFD3DE; line-height: 1.5; }
+.guess-reply.pop { animation: guessPop .45s cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes guessPop { from { opacity: 0; transform: scale(.7) translateY(6px); } }
+.guess-left { font-size: 13px; color: #C9A3B0; }
 
 /* ---------- envelope intro ---------- */
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
@@ -569,14 +587,22 @@ button { font: inherit; color: inherit; }
 }
 </style>
 
-<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 28.4081%; font-size: 14.4228px; --dx: 10.340118274696863px; animation-duration: 20.8836s; animation-delay: -2.13658s;">♥</span><span class="petal" style="left: 67.6094%; font-size: 23.1456px; --dx: -5.225816836703494px; animation-duration: 17.6232s; animation-delay: -25.8526s;">❀</span><span class="petal" style="left: 51.5632%; font-size: 20.6124px; --dx: 55.66668042575165px; animation-duration: 24.9s; animation-delay: -22.9771s;">♡</span><span class="petal" style="left: 50.2507%; font-size: 19.2759px; --dx: -11.779162797466682px; animation-duration: 25.02s; animation-delay: -13.2095s;">✿</span><span class="petal" style="left: 60.0586%; font-size: 13.1793px; --dx: -10.837200991944101px; animation-duration: 19.3573s; animation-delay: -20.023s;">♥</span><span class="petal" style="left: 77.9273%; font-size: 15.092px; --dx: -19.44129037678146px; animation-duration: 23.145s; animation-delay: -16.3821s;">❀</span><span class="petal" style="left: 19.2076%; font-size: 15.8286px; --dx: 36.66715979838938px; animation-duration: 25.3294s; animation-delay: -7.1255s;">♡</span><span class="petal" style="left: 53.8911%; font-size: 14.9988px; --dx: -27.708859413756535px; animation-duration: 20.2672s; animation-delay: -24.4815s;">✿</span><span class="petal" style="left: 18.2503%; font-size: 16.0436px; --dx: 46.184254009459266px; animation-duration: 19.9306s; animation-delay: -24.602s;">♥</span><span class="petal" style="left: 25.0471%; font-size: 23.938px; --dx: 40.98816247259984px; animation-duration: 14.2219s; animation-delay: -26.4211s;">❀</span><span class="petal" style="left: 59.2507%; font-size: 23.5481px; --dx: 25.538018047837767px; animation-duration: 19.3567s; animation-delay: -15.3873s;">♡</span><span class="petal" style="left: 97.9645%; font-size: 11.1932px; --dx: -15.787836404883258px; animation-duration: 17.6133s; animation-delay: -4.11378s;">✿</span></div>
+<div class="petals" id="petals" aria-hidden="true"><span class="petal" style="left: 9.27334%; font-size: 20.2998px; --dx: -1.720636525748958px; animation-duration: 16.431s; animation-delay: -12.9193s;">♥</span><span class="petal" style="left: 11.2774%; font-size: 14.2322px; --dx: 44.750265714430185px; animation-duration: 24.6263s; animation-delay: -1.50002s;">❀</span><span class="petal" style="left: 60.6159%; font-size: 15.1848px; --dx: 45.64576522458371px; animation-duration: 14.712s; animation-delay: -25.2358s;">♡</span><span class="petal" style="left: 54.5157%; font-size: 13.9323px; --dx: -9.596238156961789px; animation-duration: 16.8808s; animation-delay: -3.73784s;">✿</span><span class="petal" style="left: 48.5573%; font-size: 20.8234px; --dx: -34.80994489606917px; animation-duration: 21.5193s; animation-delay: -22.7009s;">♥</span><span class="petal" style="left: 25.7892%; font-size: 21.5186px; --dx: -11.870728786016784px; animation-duration: 19.1723s; animation-delay: -1.86922s;">❀</span><span class="petal" style="left: 29.3228%; font-size: 14.2526px; --dx: 30.925858468658745px; animation-duration: 26.3772s; animation-delay: -2.49349s;">♡</span><span class="petal" style="left: 60.7111%; font-size: 12.6948px; --dx: -14.653513897507324px; animation-duration: 27.7539s; animation-delay: -13.0628s;">✿</span><span class="petal" style="left: 5.39433%; font-size: 21.6558px; --dx: 58.12778694264857px; animation-duration: 26.0434s; animation-delay: -9.33768s;">♥</span><span class="petal" style="left: 76.8208%; font-size: 23.8584px; --dx: -55.66650516121145px; animation-duration: 20.2168s; animation-delay: -4.27209s;">❀</span><span class="petal" style="left: 89.8491%; font-size: 21.414px; --dx: 13.344352297794174px; animation-duration: 18.2125s; animation-delay: -13.1632s;">♡</span><span class="petal" style="left: 22.6168%; font-size: 12.8168px; --dx: 48.882328785002045px; animation-duration: 23.7923s; animation-delay: -6.88253s;">✿</span></div>
 
 <div class="lock" id="lock" hidden="">
   <div class="lock-emoji" aria-hidden="true">⏳</div>
   <p class="lock-title"><span id="lockTo">junjun</span>，还没到时间哦</p>
   <p class="lock-sub">这封信要等到 <b id="lockAt">2026.10.28 00:00</b> 才能拆</p>
   <p class="lock-time" id="lockTime" aria-live="off">00:00:00</p>
-  <p class="lock-sass">偷看是没有用的 hor<br>先去洗澡、准备好，十二点见</p>
+  <div class="guess">
+    <p class="guess-q">等的时候，先猜猜看：信封里有什么？</p>
+    <form class="guess-form" id="guessForm" autocomplete="off">
+      <input id="guessIn" type="text" maxlength="24" placeholder="输入你的猜测" aria-label="你的猜测">
+      <button type="submit">猜</button>
+    </form>
+    <p class="guess-reply" id="guessReply" aria-live="polite"></p>
+    <p class="guess-left" id="guessLeft">只有 3 次机会 hor</p>
+  </div>
 </div>
 <input type="checkbox" id="openEnv" class="sr" autocomplete="off" aria-label="拆开信封">
 <div class="intro">
@@ -907,6 +933,38 @@ const CONFIG = {
     }
     const t = setInterval(tickLock, 1000);
     tickLock();
+
+    // guess the surprise: three tries, each with a sassy reply
+    const RULES = [
+      [/戒指|求婚|结婚|ring|marry|propos/i, "想太多了 hor！不是那种东西 😂 我们才两周年。"],
+      [/信|情书|letter/i, "有一点接近了，但不只是信 hor 😏"],
+      [/照片|相片|相册|photo|回忆/i, "嗯……有点聪明，但还不够 🤏"],
+      [/歌|音乐|song|music/i, "耳朵很灵哦 👂 但不只这样。"],
+      [/钱|红包|money|angpao|ang pao/i, "钱？我自己都不够用 😤"],
+      [/吃|蛋糕|饭|食物|food|cake/i, "就知道吃 🐷"],
+      [/礼物|gift|惊喜|surprise/i, "废话，当然是惊喜啦 🙄 说具体一点！"],
+      [/katkat|kat|我|爱/i, "嘴很甜嘛，加 10 分 😌 但是答错了。"]
+    ];
+    const MISSES = ["猜错啦，再想想 🙃", "差很远 hor", "不是不是不是 🙅‍♀️"];
+    let tries = 0;
+    const form = $("guessForm"), input = $("guessIn"), reply = $("guessReply"), leftEl = $("guessLeft");
+    function say(text) { reply.textContent = text; reply.classList.remove("pop"); void reply.offsetWidth; reply.classList.add("pop"); }
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      const g = input.value.trim();
+      if (!g) { say("至少打个字嘛 😤"); return; }
+      tries++;
+      const hit = RULES.find(([re]) => re.test(g));
+      say(hit ? hit[1] : MISSES[(tries - 1) % MISSES.length]);
+      sfx.love(tries - 1);
+      input.value = "";
+      if (tries >= 3) {
+        input.disabled = true; form.querySelector("button").disabled = true;
+        leftEl.textContent = "三次机会用完啦！答案十二点揭晓，乖乖等 🐱";
+      } else {
+        leftEl.textContent = "还剩 " + (3 - tries) + " 次机会";
+      }
+    });
   })();
 
   // ---------- live counter ----------
